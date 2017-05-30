@@ -8,9 +8,9 @@ int main() {
 	mainChar.ShowStats();
 	mainChar.ChangeJobTo("Monk");
 	mainChar.ShowStats();
-	mainChar.ChangeJobTo("White Mage");
+	mainChar.ChangeJobTo("Thief");
 	mainChar.ShowStats();
-	mainChar.ChangeJobTo("Knight");
+	mainChar.ChangeJobTo("Red Mage");
 	mainChar.ShowStats();	
 	return 0;
 }

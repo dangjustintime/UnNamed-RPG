@@ -1,8 +1,6 @@
 #include "character.h"
 
-
 //member functions
-
 //creates character with a name, gender, and race
 void character::CreateChar(std::string n, std::string g, std::string r) {
 	//msg
@@ -125,9 +123,20 @@ void character::ChangeJobTo(std::string j) {
 		std::cout << "a Black Mage!\n\n\n" << std::endl;
 		this->JobChangeBlackMage();
 	}
+	//changes to knight
 	else if(j == "Knight") {
 		std::cout << "a Knight!\n\n\n" << std::endl;
 		this->JobChangeKnight();
+	}
+	//changes to Red mage
+	else if(j == "Red Mage") {
+		std::cout << "a Red Mage!\n\n\n" << std::endl;
+		this->JobChangeRedMage();
+	}
+	//changes to thief
+	else if(j == "Thief") {
+		std::cout << "a Thief!\n\n\n" << std::endl;
+		this->JobChangeThief();
 	}
 	//input validation
 	else {
@@ -347,4 +356,70 @@ void character::JobChangeKnight() {
 	this->shieldsLvl = 'S';
 	this->helmsLvl = 'A';
 	this->armorLvl = 'A';
+};
+
+//changes character's job to red mage
+void character::JobChangeRedMage() {
+	job = "Red Mage";
+	
+	//stat level bonuses
+	this->bonusMaxHP = this->baseMaxHP * 0.6;
+	this->bonusMaxMP = this->baseMaxMP * 0.6;
+	this->bonusStr = this->baseStr * 0.4;
+	this->bonusInt = this->baseInt * 0.6;
+	this->bonusDex = this->baseDex * 0.4;
+	this->bonusVit = this->baseVit * 0.4;
+	this->bonusMnd = this->baseMnd * 0.6;
+	this->bonusAgi = this->baseAgi * 0.6;
+
+	//red mages get Rank A for swords
+	//Rank B for axes, spears, rods, staves, daggers, katanas
+	//Rank C for bows, shields, helms, armor
+	//Rank D for knuckles
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'A';
+	this->axesLvl = 'B';
+	this->spearsLvl = 'B';
+	this->rodsLvl = 'B';
+	this->stavesLvl = 'B';
+	this->daggersLvl = 'B';
+	this->bowsLvl = 'C';
+	this->katanasLvl = 'B';
+	this->knucklesLvl = 'D';
+	this->shieldsLvl = 'C';
+	this->helmsLvl = 'C';
+	this->armorLvl = 'C';
+};
+//changes character's job to thief
+void character::JobChangeThief() {
+	job = "Thief";
+	
+	//stat level bonuses
+	this->bonusMaxHP = this->baseMaxHP * 0.4;
+	this->bonusMaxMP = this->baseMaxMP * 0.4;
+	this->bonusStr = this->baseStr * 0.4;
+	this->bonusInt = this->baseInt * 0;
+	this->bonusDex = this->baseDex * 1;
+	this->bonusVit = this->baseVit * 0.4;
+	this->bonusMnd = this->baseMnd * 0;
+	this->bonusAgi = this->baseAgi * 1;
+
+	//thieves get 'S' for daggers
+	//'A' for bows
+	//'C' for swords, katanas, knuckles
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'C';
+	this->axesLvl = 'F';
+	this->spearsLvl = 'F';
+	this->rodsLvl = 'F';
+	this->stavesLvl = 'F';
+	this->daggersLvl = 'S';
+	this->bowsLvl = 'A';
+	this->katanasLvl = 'C';
+	this->knucklesLvl = 'C';
+	this->shieldsLvl = 'E';
+	this->helmsLvl = 'E';
+	this->armorLvl = 'E';
 };
