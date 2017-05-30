@@ -24,6 +24,7 @@ struct character {
 		int baseMaxHP;
 		int baseMaxMP;
 		int baseStr;
+		int baseInt;
 		int baseDex;
 		int baseVit;
 		int baseMnd;
@@ -33,6 +34,7 @@ struct character {
 		int bonusMaxHP;
 		int bonusMaxMP;
 		int bonusStr;
+		int bonusInt;
 		int bonusDex;
 		int bonusVit;
 		int bonusMnd;
@@ -42,6 +44,7 @@ struct character {
 		int finalMaxHP;
 		int finalMaxMP;
 		int finalStr;
+		int finalInt;
 		int finalDex;
 		int finalVit;
 		int finalMnd;
@@ -74,7 +77,12 @@ struct character {
 		//job member functions
 		void ChangeJobTo(std::string);
 		void JobChangeUnemployed();
+		//basic jobs
 		void JobChangeFreelancer();
+		void JobChangeMonk();
+		void JobChangeWhiteMage();
+		void JobChangeBlackMage();
+		void JobChangeKnight();
 				
 	private:
 };

@@ -21,6 +21,7 @@ void character::CreateChar(std::string n, std::string g, std::string r) {
 	baseMaxHP = 10;
 	baseMaxMP = 10;
 	baseStr = 10;
+	baseInt = 10;
 	baseDex = 10;
 	baseVit = 10;
 	baseMnd = 10;
@@ -30,6 +31,7 @@ void character::CreateChar(std::string n, std::string g, std::string r) {
 	bonusMaxHP = 0;
 	bonusMaxMP = 0;
 	bonusStr = 0;
+	bonusInt = 0;
 	bonusDex = 0;
 	bonusVit = 0;
 	bonusMnd = 0;
@@ -40,6 +42,7 @@ void character::CreateChar(std::string n, std::string g, std::string r) {
 	finalMaxHP = baseMaxHP + bonusMaxHP;
 	finalMaxMP = baseMaxMP + bonusMaxMP;
 	finalStr = baseStr + bonusStr;
+	finalInt = baseInt + bonusInt;
 	finalDex = baseDex + bonusDex;
 	finalVit = baseVit + bonusVit;
 	finalMnd = baseMnd + bonusMnd;
@@ -73,11 +76,9 @@ void character::ShowStats() const {
 	std::cout << "lvl " << this->lvl << "\t\texp :" << this->exp << "/" << this->maxExp << std::endl;
 	std::cout << "HP " << this->currentHP << "/" << this->finalMaxHP << "\tMP " << this->currentMP << "/" << this->finalMaxMP << std::endl;
 	std::cout << "\tStats" << std::endl;
-	std::cout << "str " << this->finalStr << std::endl;
-	std::cout << "dex " << this->finalDex << std::endl;
-	std::cout << "vit " << this->finalVit << std::endl;
-	std::cout << "mnd " << this->finalMnd << std::endl;
-	std::cout << "agi " << this->finalAgi << std::endl;
+	std::cout << "str " << this->finalStr << "\t\tvit " << this->finalVit << std::endl;
+	std::cout << "int " << this->finalInt << "\t\tdex " << this->finalDex << std::endl;
+	std::cout << "mnd " << this->finalMnd << "\t\tagi " << this->finalAgi << std::endl;
 	std::cout << "\tEquipment" << std::endl;
 	std::cout << "Swords\t\tlvl " << this->swordsLvl << std::endl;
 	std::cout << "Axes\t\tlvl " << this->axesLvl << std::endl;
@@ -109,7 +110,25 @@ void character::ChangeJobTo(std::string j) {
 		std::cout << "a Freelancer!\n\n\n" << std::endl;
 		this->JobChangeFreelancer();
 	}
-	
+	//changes to monk
+	else if(j == "Monk") {
+		std::cout << "a Monk!\n\n\n" << std::endl;
+		this->JobChangeMonk();
+	}
+	//changes to white mage
+	else if(j == "White Mage") {
+		std::cout << "a White Mage!\n\n\n" << std::endl;
+		this->JobChangeWhiteMage();
+	}
+	//changes to black mage
+	else if(j == "Black Mage") {
+		std::cout << "a Black Mage!\n\n\n" << std::endl;
+		this->JobChangeBlackMage();
+	}
+	else if(j == "Knight") {
+		std::cout << "a Knight!\n\n\n" << std::endl;
+		this->JobChangeKnight();
+	}
 	//input validation
 	else {
 		std::cout << "\n\n\nERROR ERROR ERROR!!!! Job not found.\n" << std::endl;
@@ -119,6 +138,7 @@ void character::ChangeJobTo(std::string j) {
 	finalMaxHP = baseMaxHP + bonusMaxHP;
 	finalMaxMP = baseMaxMP + bonusMaxMP;
 	finalStr = baseStr + bonusStr;
+	finalInt = baseInt + bonusInt;
 	finalDex = baseDex + bonusDex;
 	finalVit = baseVit + bonusVit;
 	finalMnd = baseMnd + bonusMnd;
@@ -144,6 +164,7 @@ void character::JobChangeUnemployed() {
 	this->bonusMaxHP = this->baseMaxHP * 0;
 	this->bonusMaxMP = this->baseMaxMP * 0;
 	this->bonusStr = this->baseStr * 0;
+	this->bonusInt = this->baseInt * 0;
 	this->bonusDex = this->baseDex * 0;
 	this->bonusVit = this->baseVit * 0;
 	this->bonusMnd = this->baseMnd * 0;
@@ -175,6 +196,7 @@ void character::JobChangeFreelancer() {
 	this->bonusMaxHP = this->baseMaxHP * 0.4;
 	this->bonusMaxMP = this->baseMaxMP * 0.4;
 	this->bonusStr = this->baseStr * 0.4;
+	this->bonusInt = this->baseInt * 0.4;
 	this->bonusDex = this->baseDex * 0.4;
 	this->bonusVit = this->baseVit * 0.4;
 	this->bonusMnd = this->baseMnd * 0.4;
@@ -196,4 +218,133 @@ void character::JobChangeFreelancer() {
 	this->helmsLvl = 'B';
 	this->armorLvl = 'B';
 
+};
+
+//changes character's job to Monk
+void character::JobChangeMonk() {
+	job = "Monk";
+	
+	//stat level bonuses
+	this->bonusMaxHP = this->baseMaxHP * 0.8;
+	this->bonusMaxMP = this->baseMaxMP * 0.2;
+	this->bonusStr = this->baseStr * 0.8;
+	this->bonusInt = this->baseInt * 0;
+	this->bonusDex = this->baseDex * 0.4;
+	this->bonusVit = this->baseVit * 0.6;
+	this->bonusMnd = this->baseMnd * 0.2;
+	this->bonusAgi = this->baseAgi * 0.6;
+
+	//monks get Rank S for staves and knuckles
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'F';
+	this->axesLvl = 'F';
+	this->spearsLvl = 'F';
+	this->rodsLvl = 'F';
+	this->stavesLvl = 'S';
+	this->daggersLvl = 'F';
+	this->bowsLvl = 'F';
+	this->katanasLvl = 'F';
+	this->knucklesLvl = 'S';
+	this->shieldsLvl = 'F';
+	this->helmsLvl = 'F';
+	this->armorLvl = 'F';
+};
+
+//changes character's job to white mage
+void character::JobChangeWhiteMage() {
+	job = "White Mage";
+	
+	//stat level bonuses
+	this->bonusMaxHP = this->baseMaxHP * 0.4;
+	this->bonusMaxMP = this->baseMaxMP * 0.8;
+	this->bonusStr = this->baseStr * 0.2;
+	this->bonusInt = this->baseInt * 0.6;
+	this->bonusDex = this->baseDex * 0.2;
+	this->bonusVit = this->baseVit * 0;
+	this->bonusMnd = this->baseMnd * 0.8;
+	this->bonusAgi = this->baseAgi * 0.4;
+
+	//white mages get Rank S for staves
+	//Rank B for rods, Rank C for Daggers
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'F';
+	this->axesLvl = 'F';
+	this->spearsLvl = 'F';
+	this->rodsLvl = 'B';
+	this->stavesLvl = 'S';
+	this->daggersLvl = 'C';
+	this->bowsLvl = 'F';
+	this->katanasLvl = 'F';
+	this->knucklesLvl = 'F';
+	this->shieldsLvl = 'F';
+	this->helmsLvl = 'F';
+	this->armorLvl = 'F';
+};
+
+//changes character's job to BLack Mage
+void character::JobChangeBlackMage() {
+	job = "Black Mage";
+	
+	//stat level bonuses
+	this->bonusMaxHP = this->baseMaxHP * 0.4;
+	this->bonusMaxMP = this->baseMaxMP * 0.8;
+	this->bonusStr = this->baseStr * 0;
+	this->bonusInt = this->baseInt * 0.8;
+	this->bonusDex = this->baseDex * 0.2;
+	this->bonusVit = this->baseVit * 0;
+	this->bonusMnd = this->baseMnd * 0.6;
+	this->bonusAgi = this->baseAgi * 0.4;
+
+	//black mages get Rank S for rods
+	//Rank C for staves and daggers
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'F';
+	this->axesLvl = 'F';
+	this->spearsLvl = 'F';
+	this->rodsLvl = 'S';
+	this->stavesLvl = 'C';
+	this->daggersLvl = 'C';
+	this->bowsLvl = 'F';
+	this->katanasLvl = 'F';
+	this->knucklesLvl = 'F';
+	this->shieldsLvl = 'F';
+	this->helmsLvl = 'F';
+	this->armorLvl = 'F';
+};
+
+//changes character's job to knight
+void character::JobChangeKnight() {
+	job = "Knight";
+	
+	//stat level bonuses
+	this->bonusMaxHP = this->baseMaxHP * 0.6;
+	this->bonusMaxMP = this->baseMaxMP * 0.2;
+	this->bonusStr = this->baseStr * 0.6;
+	this->bonusInt = this->baseInt * 0.2;
+	this->bonusDex = this->baseDex * 0.2;
+	this->bonusVit = this->baseVit * 1;
+	this->bonusMnd = this->baseMnd * 0.6;
+	this->bonusAgi = this->baseAgi * 0.2;
+
+	//knights get Rank S for swords, shields
+	//Rank A for axes, spears, helms, armor
+	//Rank B for daggers
+	//Rank D for bows, katanas
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'S';
+	this->axesLvl = 'A';
+	this->spearsLvl = 'A';
+	this->rodsLvl = 'F';
+	this->stavesLvl = 'F';
+	this->daggersLvl = 'B';
+	this->bowsLvl = 'D';
+	this->katanasLvl = 'D';
+	this->knucklesLvl = 'F';
+	this->shieldsLvl = 'S';
+	this->helmsLvl = 'A';
+	this->armorLvl = 'A';
 };

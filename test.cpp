@@ -6,9 +6,11 @@ int main() {
 	character mainChar;
 	mainChar.CreateChar("Justin","Male","Human");
 	mainChar.ShowStats();
-	mainChar.ChangeJobTo("Freelancer");
+	mainChar.ChangeJobTo("Monk");
 	mainChar.ShowStats();
-	mainChar.ChangeJobTo("Unemployed");
+	mainChar.ChangeJobTo("White Mage");
 	mainChar.ShowStats();
+	mainChar.ChangeJobTo("Knight");
+	mainChar.ShowStats();	
 	return 0;
 }
