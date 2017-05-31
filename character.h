@@ -77,6 +77,8 @@ struct character {
 		//job member functions
 		void ChangeJobTo(std::string);
 		void JobChangeUnemployed();
+		void JobChangeGod();
+		
 		//basic jobs
 		void JobChangeFreelancer();
 		void JobChangeMonk();

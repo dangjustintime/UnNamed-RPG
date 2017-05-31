@@ -105,6 +105,11 @@ void character::ChangeJobTo(std::string j) {
 		std::cout << "unemployed.....\n\n\n" << std::endl;
 		this->JobChangeUnemployed();
 	}
+	//changes to God
+	if(j == "God") {
+			std::cout << "a God!\n\n\n" << std::endl;
+			this->JobChangeGod();
+	}
 	//changes to freelancer
 	else if(j == "Freelancer") {
 		std::cout << "a Freelancer!\n\n\n" << std::endl;
@@ -202,21 +207,54 @@ void character::JobChangeFreelancer() {
 	this->bonusMnd = this->baseMnd * 0.4;
 	this->bonusAgi = this->baseAgi * 0.4;
 
+	//Gods get Rank S on everything
+	//equipment level change
+	//uses grading system
+	this->swordsLvl = 'S';
+	this->axesLvl = 'S';
+	this->spearsLvl = 'S';
+	this->rodsLvl = 'S';
+	this->stavesLvl = 'S';
+	this->daggersLvl = 'S';
+	this->bowsLvl = 'S';
+	this->katanasLvl = 'S';
+	this->knucklesLvl = 'S';
+	this->shieldsLvl = 'S';
+	this->helmsLvl = 'S';
+	this->armorLvl = 'S';
+
+};
+
+//changes character's job to God
+void character::JobChangeGod() {
+	job = "God";
+	
+	//stat level bonuses
+	//gods get +100% on all stats
+	this->bonusMaxHP = this->baseMaxHP * 1;
+	this->bonusMaxMP = this->baseMaxMP * 1;
+	this->bonusStr = this->baseStr * 1;
+	this->bonusInt = this->baseInt * 1;
+	this->bonusDex = this->baseDex * 1;
+	this->bonusVit = this->baseVit * 1;
+	this->bonusMnd = this->baseMnd * 1;
+	this->bonusAgi = this->baseAgi * 1;
+
 	//freelancers get Rank B for all weapons and armor
 	//equipment level change
 	//uses grading system
-	this->swordsLvl = 'B';
-	this->axesLvl = 'B';
-	this->spearsLvl = 'B';
-	this->rodsLvl = 'B';
-	this->stavesLvl = 'B';
-	this->daggersLvl = 'B';
-	this->bowsLvl = 'B';
-	this->katanasLvl = 'B';
-	this->knucklesLvl = 'B';
-	this->shieldsLvl = 'B';
-	this->helmsLvl = 'B';
-	this->armorLvl = 'B';
+	this->swordsLvl = 'S';
+	this->axesLvl = 'S';
+	this->spearsLvl = 'S';
+	this->rodsLvl = 'S';
+	this->stavesLvl = 'S';
+	this->daggersLvl = 'S';
+	this->bowsLvl = 'S';
+	this->katanasLvl = 'S';
+	this->knucklesLvl = 'S';
+	this->shieldsLvl = 'S';
+	this->helmsLvl = 'S';
+	this->armorLvl = 'S';
 
 };
 

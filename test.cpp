@@ -10,7 +10,7 @@ int main() {
 	mainChar.ShowStats();
 	mainChar.ChangeJobTo("White Mage");
 	mainChar.ShowStats();
-	mainChar.ChangeJobTo("Knight");
+	mainChar.ChangeJobTo("God");
 	mainChar.ShowStats();	
 	return 0;
 }
