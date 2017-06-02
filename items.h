@@ -15,7 +15,7 @@ struct item {
 	
 	//member function prototypes
 	void Use(character);
-	
+
 	private:
 
 
