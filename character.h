@@ -85,6 +85,9 @@ struct character {
 		void JobChangeWhiteMage();
 		void JobChangeBlackMage();
 		void JobChangeKnight();
+		//next tier jobs
+		void JobChangeRedMage();
+		void JobChangeThief();
 				
 	private:
 };
