@@ -7,7 +7,7 @@
 #include <string>
 #incluce "character.h"
 
-struct item {
+class item {
 	public:
 	std::name;
 	std::string description;

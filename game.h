@@ -6,7 +6,7 @@
 #include "items.h"
 
 
-struct Game {
+class Game {
 	public:
 		//constructor
 		Game();

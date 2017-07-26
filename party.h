@@ -3,7 +3,7 @@
 #include "character.h"
 
 
-struct Party {
+class Party {
 
 	//constructor
 	Party();

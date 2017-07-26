@@ -8,8 +8,8 @@
 #include <iomanip>
 #include <string>
 
-//struct for character
-struct character {
+//class for character
+class character {
 	public:
 		//general info
 		std::string name;

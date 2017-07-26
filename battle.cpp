@@ -4,7 +4,7 @@
 #include "character.h"
 #include "items.h"
 
-struct Battle {
+class Battle {
 	public:
 		int numTurn;
 
